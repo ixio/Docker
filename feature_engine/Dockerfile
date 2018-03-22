@@ -16,11 +16,11 @@ RUN \
   apt-get -y install sbt
 
 
-WORKDIR /root
+WORKDIR /opt
 
-RUN git clone https://github.com/Project-EBDO/FeatureEngine.git
+RUN git clone https://github.com/Project-EBDO/FeatureEngine.git feature_engine
 
-WORKDIR /root/FeatureEngine
+WORKDIR /opt/feature_engine
 
 # compile in order to download depencies as well
 RUN sbt compile
