@@ -1,4 +1,7 @@
-# Nginx Dockerfile
+# ODE Nginx Dockerfile
+# Copyright (C) 2017 Project-EBDO
+
+# author: Alexandre Degurse
 
 FROM nginx:1.13.9
 
