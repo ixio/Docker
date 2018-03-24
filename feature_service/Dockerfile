@@ -27,4 +27,6 @@ RUN \
     cp config.example.yaml config.yaml && \
     sed -i 's/your\/htpasswd\/file\/path/opt\/feature_service\/htpasswd/' config.yaml && \
     sed -i 's/localhost/elasticsearch/' config.yaml && \
-    sed -i 's/GENERATE NEW SECRET PLEASE/$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1)/' config.yaml
+    sed -i "s/GENERATE NEW SECRET PLEASE/`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1`/" config.yaml
+
+CMD [ "node", "server.js" ]
