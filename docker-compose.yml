@@ -6,14 +6,15 @@
 version: '3.1'
 services:
 
-  feature_engine:
+  ode_feature_engine:
     build: feature_engine
+    container_name: ode_feature_engine
     networks:
       - backend
 
-  elasticsearch:
+  ode_elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
-    container_name: elasticsearch
+    container_name: ode_elasticsearch
     environment:
       - discovery.type=single-node
       - cluster.name=ode-cluster
@@ -34,20 +35,20 @@ services:
   #   networks:
   #     - middleware
 
-  feature_service:
-    build: "feature_service"
-    container_name: feature_service
+  ode_feature_service:
+    build: feature_service
+    container_name: ode_feature_service
     environment:
       - NODE_ENV=production
     networks:
       - middleware
 
-  nginx:
+  ode_nginx:
     ## As of now, there is no repository for frontend. Thus, no image is build,
     ## nginx's default image is used.
     # build: "nginx"
     image: nginx:1.13.9
-    container_name: nginx
+    container_name: ode_nginx
     volumes:
       - ./nginx/config:/etc/nginx:ro
       - ./nginx/static:/var/www/edo/static:ro
