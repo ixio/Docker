@@ -3,7 +3,7 @@
 ## Routes
 
 In the default configuration, nginx:
-- proxies all request made with a path that starts with data.ebdo.org to FeatureSerice
+- proxies all request made with a path that starts with data.ode.org to FeatureSerice
 
 A commented location is present in nginx.conf that serves static files (css, js,
 images, ...).

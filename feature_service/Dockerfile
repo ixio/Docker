@@ -1,5 +1,5 @@
 # ODE FeatureEngine Dockerfile
-# Copyright (C) 2017 Project-EBDO
+# Copyright (C) 2017 Project-ODE
 
 # author: Alexandre Degurse
 
@@ -13,7 +13,7 @@ USER node
 
 WORKDIR /opt
 
-RUN git clone https://github.com/Project-EBDO/FeatureService.git feature_service
+RUN git clone https://github.com/Project-ODE/FeatureService.git feature_service
 
 WORKDIR /opt/feature_service
 

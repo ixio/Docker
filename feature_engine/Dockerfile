@@ -1,5 +1,5 @@
 # ODE Scala and sbt Dockerfile
-# Copyright (C) 2017 Project-EBDO
+# Copyright (C) 2017 Project-ODE
 
 # author: Alexandre Degurse
 
@@ -21,7 +21,7 @@ RUN \
 
 WORKDIR /opt
 
-RUN git clone https://github.com/Project-EBDO/FeatureEngine.git feature_engine
+RUN git clone https://github.com/Project-ODE/FeatureEngine.git feature_engine
 
 WORKDIR /opt/feature_engine
 

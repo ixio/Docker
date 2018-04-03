@@ -1,5 +1,5 @@
 # ODE Nginx Dockerfile
-# Copyright (C) 2017 Project-EBDO
+# Copyright (C) 2017 Project-ODE
 
 # author: Alexandre Degurse
 
@@ -17,7 +17,7 @@ USER www-data
 WORKDIR /var/www/ode
 
 ## Webapps or static files should be added here
-#RUN git clone https://github.com/Project-EBDO/WEBAPP
+#RUN git clone https://github.com/Project-ODE/WEBAPP
 
 USER root
 
