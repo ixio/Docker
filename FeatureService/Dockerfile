@@ -4,7 +4,7 @@ FROM node:9.2.0
 
 WORKDIR /opt
 
-RUN git clone --single-branch -b demo-october2018 https://github.com/ixio/FeatureService
+RUN git clone --single-branch -b master https://github.com/Project-ODE/FeatureService
 
 WORKDIR /opt/FeatureService
 

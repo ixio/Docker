@@ -4,7 +4,7 @@ FROM node:9.2.0
 
 WORKDIR /opt
 
-RUN git clone --single-branch -b demo-october2018 https://github.com/ixio/FrontApp
+RUN git clone --single-branch -b feature/add-annotations https://github.com/rvovard/FrontApp
 
 WORKDIR /opt/FrontApp
 
