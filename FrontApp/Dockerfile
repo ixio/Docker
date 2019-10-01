@@ -4,11 +4,9 @@ FROM node:9.2.0
 
 WORKDIR /opt
 
-RUN git clone --single-branch -b feature/add-annotations https://github.com/rvovard/FrontApp
+RUN git clone --single-branch -b master https://github.com/Project-ODE/FrontApp
 
 WORKDIR /opt/FrontApp
-
-RUN git submodule update --init
 
 RUN npm install
 

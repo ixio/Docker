@@ -16,12 +16,8 @@ RUN patch -p0 < hyperswitch.patch
 RUN touch htpasswd && \
     cp config.test.yaml config.yaml && \
     sed -i "s/1h/40d/g" config.yaml && \
-    sed -i "s/port: 5433/port: 5432,\n            host: 'testdb'/" knexfile.js
+    sed -i "s/port: 5433/port: 5433,\n            host: 'db'/" knexfile.js
 
 RUN ln -s /opt/FeatureService/node_modules/knex/bin/cli.js /usr/bin/knex
-
-COPY data/*.wav resources/annotator/wav/
-COPY data/*.png resources/annotator/png/
-COPY data/init.js db/seeds/test/
 
 EXPOSE 7231
