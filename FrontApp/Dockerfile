@@ -10,7 +10,7 @@ WORKDIR /opt/FrontApp
 
 RUN npm install
 
-RUN echo "REACT_APP_API_URL=http://localhost:7231/data.ode.org/v1" > .env.production.local
+RUN echo "REACT_APP_API_URL=https://api.osmose.ixio.xyz/data.ode.org/v1" > .env.production.local
 
 RUN npm run build
 RUN npm install -g serve
