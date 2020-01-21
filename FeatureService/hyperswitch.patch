@@ -1,0 +1,31 @@
+--- node_modules/hyperswitch/lib/server.js
++++ node_modules/hyperswitch/lib/server.js
+@@ -129,6 +129,7 @@ function logResponse(opts, response, startTime) {
+ function handleResponse(opts, req, resp, response) {
+     if (response && response.status) {
+         const rh = response.headers = response.headers || {};
++        rh["Access-Control-Allow-Origin"] = "*";
+
+         utils.removeHopToHopHeaders(rh, false);
+
+@@ -241,6 +241,7 @@ function handleResponse(opts, req, resp, response) {
+
+         response = response || {};
+         response.headers = response.headers || {};
++        response.headers["Access-Control-Allow-Origin"] = "*";
+         response.headers['content-type'] = 'application/problem+json';
+
+         resp.writeHead(response.status || 500, '', response.headers);
+@@ -323,6 +324,13 @@ function handleRequest(opts, req, resp) {
+     });
+     reqOpts.log = reqOpts.logger && reqOpts.logger.log.bind(reqOpts.logger) || (() => {});
+
++    if (req.method.toLowerCase() === 'options') {
++        let headers = {}
++        headers['Access-Control-Allow-Methods'] = "OPTIONS, GET, HEAD, POST";
++        headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept, Authorization";
++        return handleResponse(reqOpts, req, resp, { headers: headers, status: 200 });
++    }
++
+     // Create a new, clean request object
+     const urlData = parseURL(req.url);
