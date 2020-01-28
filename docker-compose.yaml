@@ -1,0 +1,38 @@
+# ODE docker compose file
+# Copyright (C) 2019 Project-ODE
+
+version: '3.5'
+services:
+  db:
+    image: mdillon/postgis
+    environment:
+      - POSTGRES_USER=postgres
+    networks:
+      - netdb
+
+  feature_service:
+    build: FeatureService
+    depends_on:
+      - db
+    ports:
+      - "7231:7231"
+    volumes:
+      - ./volumes/db_seeds:/opt/FeatureService/db/seeds
+      - ./volumes/annotator_resources:/opt/FeatureService/resources/annotator
+    command: bash -c "sleep 5; knex migrate:latest && knex seed:run && npm start"
+    networks:
+      - netdb
+
+  front_app:
+    build: FrontApp
+    depends_on:
+      - feature_service
+    ports:
+      - "5000:5000"
+    command: serve -s build
+    networks:
+      - netfront
+      
+networks:
+  netfront:
+  netdb:

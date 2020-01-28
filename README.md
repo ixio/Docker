@@ -54,7 +54,7 @@ docker-compose up
 For starting each container separately:
 ```bash
 docker-compose up <service>
-#where `<service>` can be feature_engine, feature_service, kibana, elasticsearch, nginx.
+#where `<service>` can be front_app, feature_service, ...
 ```
 
 *Note: some services depends on other services to work*

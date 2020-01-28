@@ -1,4 +1,1 @@
-# Ignore generic useless files
-*.pyc
-*.swp
-
+volumes/*
