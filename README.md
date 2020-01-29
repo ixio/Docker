@@ -2,7 +2,7 @@
 
 The purpose of this repository is to provide a [Docker](https://docker.com) configuration to tie-up together the various components of the ODE platform through a single docker-compose command.
 
-###Requirements
+## Requirements
 
 You need to install docker and docker-compose:
 
@@ -14,7 +14,7 @@ The platform had been tested with :
 - docker 18.02.0-ce
 - docker-compose 1.19.0
 
-#### Ubuntu and Debian
+### Ubuntu and Debian
 
 Docker should be installed by using docker's repository.
 Run the following commands to install docker-ce and docker compose :
