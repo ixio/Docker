@@ -11,20 +11,29 @@ services:
       - netdb
 
   feature_service:
-    build: FeatureService
+    build:
+      context: FeatureService
+      args:
+        api_url: ${API_URL}
     depends_on:
       - db
     ports:
       - "7231:7231"
-    volumes:
-      - ./volumes/db_seeds:/opt/FeatureService/db/seeds
-      - ./volumes/annotator_resources:/opt/FeatureService/resources/annotator
-    command: bash -c "sleep 5; knex migrate:latest && knex seed:run && npm start"
+    ## If you provide your own seed and data files uncomment the following lines
+    ## and also comment the current command line
+    # volumes:
+    #   - ./volumes/db_seeds:/opt/FeatureService/db/seeds
+    #   - ./volumes/annotator_resources:/opt/FeatureService/resources/annotator
+    # command: bash -c "sleep 5; knex migrate:latest && knex seed:run && npm start"
+    command: bash -c "sleep 5; npm run seed && npm start"
     networks:
       - netdb
 
   front_app:
-    build: FrontApp
+    build:
+      context: FrontApp
+      args:
+        api_url: ${API_URL}
     depends_on:
       - feature_service
     ports:
