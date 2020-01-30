@@ -77,6 +77,10 @@ https-portal:
     STAGE: 'production'
 ```
 
+#### Demo update script: update-demo.sh
+
+The update-demo.sh script is meant to be used with a crontab to keep an up-to-date demo on the web and / or a staging environment. It records in a html comment on FrontApp the different commits used so that advanced users can know what is deployed exactly.
+
 ### Use custom FeatureService seeding
 
 You can un-comment volumes line in the docker-compose file if you use your own seeding files.
