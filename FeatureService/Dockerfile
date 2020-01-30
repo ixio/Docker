@@ -3,11 +3,12 @@
 FROM node:10.18.1
 
 ARG api_url=https://api.demo-aplose.osmose.xyz
-ARG seed_folder=./db/seeds
+ARG repo=https://github.com/Project-ODE/FeatureService
+ARG branch=master
 
 WORKDIR /opt
 
-RUN git clone --single-branch -b master https://github.com/Project-ODE/FeatureService
+RUN git clone --single-branch -b $branch $repo
 
 WORKDIR /opt/FeatureService
 

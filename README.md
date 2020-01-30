@@ -57,6 +57,8 @@ docker-compose up <service>
 
 Initial set-up for FeatureService will be slow as default config is to run seeding that downloads a lot of files, when re-running the container it will skip files it has already downloaded.
 
+You can change which branch or repo is used by modifying the .env file.
+
 *Note: some services depends on other services to work*
 
 ### Running on a server

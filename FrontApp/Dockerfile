@@ -3,10 +3,12 @@
 FROM node:9.2.0
 
 ARG api_url=https://api.demo-aplose.osmose.xyz
+ARG repo=https://github.com/Project-ODE/FrontApp
+ARG branch=master
 
 WORKDIR /opt
 
-RUN git clone --single-branch -b master https://github.com/Project-ODE/FrontApp
+RUN git clone --single-branch -b $branch $repo
 
 WORKDIR /opt/FrontApp
 

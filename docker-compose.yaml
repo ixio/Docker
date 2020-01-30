@@ -15,6 +15,8 @@ services:
       context: FeatureService
       args:
         api_url: ${API_URL}
+        branch: ${FEATURE_SERVICE_GIT_BRANCH}
+        repo: ${FEATURE_SERVICE_GIT_URL}
     depends_on:
       - db
     ports:
@@ -34,6 +36,8 @@ services:
       context: FrontApp
       args:
         api_url: ${API_URL}
+        branch: ${FRONT_APP_GIT_BRANCH}
+        repo: ${FRONT_APP_GIT_URL}
     depends_on:
       - feature_service
     ports:
